@@ -15,8 +15,8 @@ use App\Http\Controllers\Recommendation\Quota\Generator\Schedule;
 use App\Http\Controllers\Recommendation\Status as RecommendationStatus;
 use App\Http\Controllers\Recommendation\Type as RecommendationType;
 use App\Http\Controllers\RecommendationTypeActions;
+use App\Http\Controllers\Result;
 use Illuminate\Support\Facades\Route;
-use LDAP\Result;
 
 /*
 |--------------------------------------------------------------------------

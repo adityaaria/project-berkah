@@ -5,7 +5,12 @@ use App\Http\Controllers\Approval\Settings;
 use App\Http\Controllers\Approval\Type;
 use App\Http\Controllers\Approvals;
 use App\Http\Controllers\Aritmatika;
+use App\Http\Controllers\CarController;
 use app\Http\Controllers\Fruit;
+use App\Http\Controllers\Handphone;
+use App\Http\Controllers\HandphoneController;
+use App\Http\Controllers\KalkulatorController;
+use App\Http\Controllers\MesinCuciController;
 use App\Http\Controllers\Recommendation;
 use App\Http\Controllers\Recommendation\Approval;
 use App\Http\Controllers\Recommendation\Approval\Status;
@@ -57,10 +62,15 @@ Route::get('/fruit/hello', [Fruit::class, 'hello']);
 Route::get('aritmatika/pertambahan/{angka1}/{angka2}', [Aritmatika::class, 'pertambahan']);
 
 // single controller
-Route::get('approvals', [Approvals::class, '']);
-Route::get('Recommendation', [Recommendation::class, '']);
-Route::get('RecommendationTypeAction', [RecommendationTypeActions::class, '']);
-Route::get('Result', [Result::class, '']);
+Route::get('approvals', [Approvals::class, 'index']);
+Route::get('approvals', [Approvals::class, 'respond']);
+Route::get('approvals', [Approvals::class, 'approve']);
+Route::get('approvals', [Approvals::class, 'reject']);
+Route::get('approvals', [Approvals::class, 'rejectAll']);
+Route::get('approvals', [Approvals::class, 'approveAll']);
+Route::get('recommendation', [Recommendation::class, 'Index']);
+Route::get('recommendationTypeAction', [RecommendationTypeActions::class, 'Index']);
+Route::get('result', [Result::class, 'Index']);
 
 // approval group controller
 
@@ -77,3 +87,18 @@ Route::get('recommendation/Status', [RecommendationStatus::class, '']);
 Route::get('recommendation/Type', [RecommendationType::class, '']);
 Route::get('recommendation/Approval/Status', [Status::class, '']);
 Route::get('recommendation/Quota/Schedule', [Schedule::class, '']);
+
+Route::get('car/mobil-pribadi/{merk}/{color}/{distance}', [CarController::class, 'mobilPribadi']);
+
+// Tugas 4
+
+// handphone
+Route::get('handphone/execute', [HandphoneController::class, 'execute']);
+Route::get('handphone/panggilNomor/{nomor}', [HandphoneController::class, 'panggilNomor']);
+Route::get('handphone/kirimPesan/{pesan}', [HandphoneController::class, 'kirimPesan']);
+
+// mesin cuci
+Route::get('mesincuci/startEngine',[MesinCuciController::class,'startEngine']);
+
+// kalkulator
+Route::get('kalkulator/hitungAll/{a}/{b}',[KalkulatorController::class,'hitungAll']);

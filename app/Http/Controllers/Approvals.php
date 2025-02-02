@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class Approvals extends Controller
 {
-    //
+    public function respond (){
+        
+    }
 }
